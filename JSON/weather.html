@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+<meta charset="UTF-8">
+<title>JSON tehtävät</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<nav>
+
+<a href="index.html">Etusivu (Tehtävä 1 OSA I)</a>
+
+<a href="toteutus.html">Tehtävä 1 OSA II</a>
+
+<a href="pokemon.html">Poke haku (Tehtävä 2 OSA I)</a>
+
+<a href="weather.html">Tehtävä 3</a>
+
+</nav>
+
+<h1>Sää Helsingissä</h1>
+
+<p id="aika"></p>
+
+<div id ="weather"></div>
+
+<script>
+
+let aika = new Date();
+
+document.getElementById("aika").innerHTML =
+"Sää kello " + aika.getHours() + ":" + aika.getMinutes();
+
+fetch("https://api.openweathermap.org/data/2.5/weather?id=658225&appid=665ecd56dfc08dbb50feb8b8f5034e28&lang=fi&units=metric")
+
+.then(function(response){
+return response.json();
+})
+
+.then(function(data){
+
+let teksti="";
+
+teksti += "<h3>Sää:</h3>";
+
+teksti += data.weather[0].description + "<br><br>";
+
+teksti += "<h3>Lämpötila:</h3>";
+
+teksti += data.main.temp + "°C<br><br>";
+
+teksti += "<h3>Tuuli:</h3>";
+
+teksti += data.wind.speed + " m/s<br><br>";
+
+let icon = data.weather[0].icon;
+
+teksti += "<img src='https://openweathermap.org/img/wn/"+icon+"@2x.png'>";
+
+document.getElementById("weather").innerHTML = teksti;
+
+});
+
+</script>

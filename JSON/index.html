@@ -13,7 +13,7 @@
 
 <a href="index.html">Etusivu (Tehtävä 1 OSA I)</a>
 
-<a href="json.html">Tehtävä 1 OSA II</a>
+<a href="toteutus.html">Tehtävä 1 OSA II</a>
 
 <a href="pokemon.html">Poke haku (Tehtävä 2 OSA I)</a>
 
@@ -21,9 +21,61 @@
 
 </nav>
 
-<h1>JSON-datan käsittelyä</h1>
+<div id="vastaus"></div>
 
-<p>Tällä sivustolle haetaan JSON-muotoista dataa</p>
+<script>
+
+fetch("tietue.json")
+
+.then(function(response){
+return response.json();
+})
+
+.then(function(responseJson){
+kerro(responseJson);
+});
+
+function kerro(obj){
+
+let tiedot="";
+
+tiedot += "<h1>"+obj.otsikko+"</h1>";
+
+tiedot += "<p>"+obj.kuvaus+"</p>";
+
+tiedot += "<hr>";
+
+tiedot += "<img src='"+obj.kuva+"' class='kuva'>";
+
+tiedot += "<div class='opintojakso'>";
+
+tiedot += "<h2>Opintojakso</h2>";
+
+tiedot += "Nimi: "+obj.opintojakso.nimi+"<br>";
+
+tiedot += "Tunnus: "+obj.opintojakso.tunnus+"<br>";
+
+tiedot += "Opintopisteet: "+obj.opintojakso.opintopisteet+"<br>";
+
+tiedot += "</div>";
+
+tiedot += "<h2>Aiheet</h2>";
+
+for (let i = 0; i < obj.tekniikat.length; i++) {
+
+tiedot += "<b>Aihe: "+obj.tekniikat[i].aihe+"</b> ";
+
+tiedot += "<a href='"+obj.tekniikat[i].linkki+"'>";
+
+tiedot += obj.tekniikat[i].linkki+"</a><br>";
+
+}
+
+document.getElementById("vastaus").innerHTML = tiedot;
+
+}
+
+</script>
 
 </body>
 </html>

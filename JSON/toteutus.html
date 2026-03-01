@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+<meta charset="UTF-8">
+<title>Tehtävä 1 OSA II</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<nav>
+
+<a href="index.html">Etusivu (Tehtävä 1 OSA I)</a>
+
+<a href="toteutus.html">Tehtävä 1 OSA II</a>
+
+<a href="pokemon.html">Poke haku (Tehtävä 2 OSA I)</a>
+
+<a href="weather.html">Tehtävä 3</a>
+
+</nav>
+
+<div id="toteutus"></div>
+
+<script>
+
+fetch("toteutus.json")
+
+.then(function(response){
+return response.json();
+})
+
+.then(function(data){
+
+let teksti="";
+
+teksti+="<h1>"+data.nimi+"</h1>";
+
+teksti+=data.osallistujat+" kpl<br><br>";
+
+teksti+=data.henkilot.join(" ")+"<br><br>";
+
+teksti+=data.alku+" - "+data.loppu+"<br><br>";
+
+teksti+=data.kesto+"<br><br>";
+
+teksti+="<img src='"+data.kuva+"' width='600'>";
+
+document.getElementById("toteutus").innerHTML=teksti;
+
+})
+
+</script>
+
+</body>
+</html>

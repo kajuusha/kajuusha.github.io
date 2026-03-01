@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+<meta charset="UTF-8">
+<title>Pokemon haku</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<nav>
+
+<a href="index.html">Etusivu (Tehtävä 1 OSA I)</a>
+
+<a href="toteutus.html">Tehtävä 1 OSA II</a>
+
+<a href="pokemon.html">Poke haku (Tehtävä 2 OSA I)</a>
+
+<a href="weather.html">Tehtävä 3</a>
+
+</nav>
+
+<h1>Pokemon haku</h1>
+
+<p>
+
+<input type="text" id="pokemonName" placeholder="Enter Pokemon name">
+
+<button onclick="poke()">Hae</button><br>
+
+<button onclick="kaanna()" id="kaannaBtn" style="display:none;">Käännä</button>
+<div id="nimi">Kirjoita laatikkoon Pokemonin nimi</div>
+
+<p id="kuva2"></p>
+<div id="tiedot"></div>
+
+
+<script>
+
+let pokemonData;
+
+function poke(){
+
+const pokeName =
+document.getElementById("pokemonName").value.toLowerCase();
+
+let name =
+document.getElementById("pokemonName").value;
+
+fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
+
+.then(function (response) {
+return response.json();
+})
+
+.then(function (responseJson) {
+    pokemonData = responseJson;
+pokekuva(responseJson);
+})
+
+.catch(function (error) {
+
+document.getElementById("nimi").innerHTML =
+"Tietoa ei pystytä hakemaan";
+
+})
+
+}
+
+function pokekuva(obj){
+
+let pokeurl = obj.sprites.front_default;
+
+document.getElementById("kuva2").innerHTML =
+"<img src=" + pokeurl + ">";
+
+document.getElementById("nimi").innerHTML =
+"<b>" + obj.name + "</b>";
+
+document.getElementById("pokemonName").value = "";
+
+document.getElementById("kaannaBtn").style.display = "inline";
+
+}
+
+function kaanna(){
+
+let kuva = pokemonData.sprites.back_default;
+
+document.getElementById("kuva2").innerHTML =
+"<img src='"+kuva+"'>";
+
+let teksti="";
+
+teksti+="<h3>Pokemon tiedot</h3>";
+
+teksti+="Height: "+pokemonData.height+"<br>";
+
+teksti+="Weight: "+pokemonData.weight+"<br>";
+
+teksti+="Base experience: "+pokemonData.base_experience;
+
+document.getElementById("tiedot").innerHTML = teksti;
+
+}
+
+</script>
+
+</body>
+</html>

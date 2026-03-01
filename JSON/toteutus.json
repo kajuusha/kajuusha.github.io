@@ -1,0 +1,19 @@
+{
+  "nimi": "Digitekniikat",
+  "osallistujat": 5,
+
+  "henkilot": [
+    "Jaakko",
+    "Seppo",
+    "Liisa",
+    "Tiina",
+    "Kalle"
+  ],
+
+  "alku": "13.1.2025",
+  "loppu": "14.3.2025",
+
+  "kesto": "8 viikkoa",
+
+  "kuva": "https://images.unsplash.com/photo-1555066931-4365d14bab8c"
+}
