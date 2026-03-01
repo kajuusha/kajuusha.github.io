@@ -9,6 +9,8 @@
 
 <body>
 
+<!-- Navigaatio -->
+
 <nav>
 
 <a href="index.html">Etusivu (Tehtävä 1 OSA I)</a>
@@ -25,10 +27,13 @@
 
 <p>
 
+<!-- Tekstikenttä johon käyttäjä kirjoittaa Pokemonin nimen -->
 <input type="text" id="pokemonName" placeholder="Enter Pokemon name">
 
+<!-- Painike joka käynnistää Pokemon haun -->
 <button onclick="poke()">Hae</button><br>
 
+<!-- Painike joka näyttää Pokemonin selkäkuvan ja lisätiedot -->
 <button onclick="kaanna()" id="kaannaBtn" style="display:none;">Käännä</button>
 <div id="nimi">Kirjoita laatikkoon Pokemonin nimi</div>
 
@@ -40,6 +45,7 @@
 
 let pokemonData;
 
+// Funktio joka hakee Pokemon tiedot API:sta
 function poke(){
 
 const pokeName =
@@ -48,8 +54,10 @@ document.getElementById("pokemonName").value.toLowerCase();
 let name =
 document.getElementById("pokemonName").value;
 
+// Fetch API hakee Pokemon tiedot PokeAPI rajapinnasta
 fetch(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
 
+// Muutetaan vastaus JSON muotoon
 .then(function (response) {
 return response.json();
 })
@@ -68,6 +76,7 @@ document.getElementById("nimi").innerHTML =
 
 }
 
+// Funktio joka näyttää Pokemonin nimen ja kuvan
 function pokekuva(obj){
 
 let pokeurl = obj.sprites.front_default;
@@ -84,6 +93,7 @@ document.getElementById("kaannaBtn").style.display = "inline";
 
 }
 
+// Funktio joka näyttää Pokemonin selkäkuvan ja lisätiedot
 function kaanna(){
 
 let kuva = pokemonData.sprites.back_default;

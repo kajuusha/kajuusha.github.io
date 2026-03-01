@@ -9,6 +9,7 @@
 
 <body>
 
+<!-- Navigaatio -->  
 <nav>
 
 <a href="index.html">Etusivu (Tehtävä 1 OSA I)</a>
@@ -25,15 +26,21 @@
 
 <script>
 
+// Haetaan JSON tiedosto fetch API:n avulla
 fetch("tietue.json")
 
+// Muutetaan vastaus JSON muotoon
 .then(function(response){
 return response.json();
 })
 
+// Kutsutaan funktiota joka näyttää tiedot sivulla
 .then(function(responseJson){
 kerro(responseJson);
 });
+
+
+// Funktio joka tulostaa JSON tiedot HTML sivulle
 
 function kerro(obj){
 
@@ -59,6 +66,8 @@ tiedot += "Opintopisteet: "+obj.opintojakso.opintopisteet+"<br>";
 
 tiedot += "</div>";
 
+
+// Lista aiheista 
 tiedot += "<h2>Aiheet</h2>";
 
 for (let i = 0; i < obj.tekniikat.length; i++) {

@@ -9,6 +9,8 @@
 
 <body>
 
+<!-- Navigaatio-->
+
 <nav>
 
 <a href="index.html">Etusivu (Tehtävä 1 OSA I)</a>
@@ -31,11 +33,14 @@
 
 let aika = new Date();
 
+// Näytetään sivulla kellonaika jolloin sää haetaan
 document.getElementById("aika").innerHTML =
 "Sää kello " + aika.getHours() + ":" + aika.getMinutes();
 
+// Haetaan säätiedot OpenWeather API:sta Helsingille
 fetch("https://api.openweathermap.org/data/2.5/weather?id=658225&appid=665ecd56dfc08dbb50feb8b8f5034e28&lang=fi&units=metric")
 
+// Muutetaan vastaus JSON muotoon
 .then(function(response){
 return response.json();
 })
