@@ -1,0 +1,128 @@
+
+body{
+background:#669bbcaf;
+font-family:"Roboto", sans-serif;
+}
+ 
+h1, h2, h3{
+font-family: "Chango", sans-serif;
+}
+
+h1 {
+    font-weight:500;
+}
+
+
+.title{
+    color: white !important;
+    text-align: center;
+}
+
+
+.custom-navbar{
+background:#003049;
+box-shadow:0 4px 12px rgba(0,0,0,0.2);
+
+}
+
+.nav-link{
+color:#fff !important;
+transition:0.2s;
+}
+
+.nav-link:hover{
+color:#ff1100 !important;
+}
+
+/*  */
+
+.card{
+background:#ffffff;
+border-radius:18px;
+box-shadow:0 10px 20px rgba(0,0,0,0.08);
+border:none;
+margin-bottom:30px;
+}
+
+
+
+/* timer circle */
+
+.timer-circle{
+width:180px;
+height:180px;
+border-radius:50%;
+background:linear-gradient(135deg,#FD091A,#74020a);
+display:flex;
+align-items:center;
+justify-content:center;
+margin:20px auto;
+color: #fff;
+font-size:40px;
+box-shadow:0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* buttons */
+
+.btn-start{
+background:#9d0910;
+color:white;
+}
+
+.btn-break{
+background:#c1121f;
+color:white;
+}
+
+.btn-reset{
+background:#df817a;
+color:white;
+}
+
+.btn-fun{
+background:#336683;
+color:white;
+}
+
+
+
+.btn:hover{
+transform:scale(1.05);
+transition:0.2s;
+}
+/* tomato gif */
+
+.tomato-gif{
+width:120px;
+margin-bottom:10px;
+display:block;
+margin-left:auto;
+margin-right:auto;
+filter:drop-shadow(0px 5px 10px rgba(0,0,0,0.2));
+}
+
+.small-tomato{
+width:70px;
+margin-top:10px;
+}
+
+.tool-card{
+display:block;
+background:white;
+padding:25px;
+border-radius:16px;
+text-decoration:none;
+color:#333;
+box-shadow:0 8px 15px rgba(0,0,0,0.1);
+transition:0.2s;
+}
+
+.tool-card:hover{
+transform:translateY(-6px);
+box-shadow:0 15px 30px rgba(0,0,0,0.15);
+}
+
+.tool-logo{
+width:40px;
+margin-bottom:10px;
+}
